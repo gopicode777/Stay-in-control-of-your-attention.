@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FocusPause – Pause the impulse. Choose your focus.</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a href="#" class="logo" data-view="home"><span class="dot"></span>FocusPause</a>
+  <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+  <nav id="nav" aria-label="Main">
+    <a href="#" data-view="dashboard">Dashboard</a>
+    <a href="#" data-view="session">Focus Session</a>
+    <a href="#" data-view="insights">Insights</a>
+    <a href="#" data-view="how">How It Works</a>
+    <a href="#" data-view="human">Human vs AI</a>
+    <a href="#" data-view="about">About</a>
+  </nav>
+</header>
+
+<main>
+<!-- 1 LANDING -->
+<section class="view" id="home">
+  <div class="hero">
+    <h1>Stay in control of your attention.</h1>
+    <p class="lead">FocusPause helps online learners interrupt automatic distraction habits with a simple 5-second pause before switching away from learning.</p>
+    <p class="tag">Pause the impulse. Choose your focus.</p>
+    <div class="row"><button class="btn" data-view="dashboard">Start Focus Session</button><button class="btn ghost" data-view="how">How It Works</button></div>
+    <ol class="flow" aria-label="Flow">
+      <li>Learning</li><li>Distraction impulse</li><li class="hot">5-second pause</li><li>Conscious choice</li>
+    </ol>
+    <p class="note">Designed as a student problem-solving prototype.</p>
+  </div>
+</section>
+
+<!-- 2 DASHBOARD -->
+<section class="view" id="dashboard">
+  <h2>Good morning, Student 👋</h2>
+  <p class="sub">Ready for a focused learning session?</p>
+  <div class="grid4" id="stats"></div>
+  <div class="grid2">
+    <div class="card">
+      <h3>Start a Focus Session</h3>
+      <label for="activity">Learning activity</label>
+      <select id="activity"><option>Online Class</option><option>Coding Practice</option><option>Aptitude Practice</option><option>Exam Revision</option><option>Assignment Work</option><option>Custom</option></select>
+      <input id="custom" type="text" placeholder="Describe your activity" aria-label="Custom activity" hidden>
+      <label for="duration">Planned duration</label>
+      <select id="duration"><option value="15">15 min</option><option value="25" selected>25 min</option><option value="45">45 min</option><option value="60">60 min</option></select>
+      <button class="btn" id="begin">Begin Focus</button>
+    </div>
+    <div class="card">
+      <h3>How FocusPause Works</h3>
+      <ol class="steps"><li>Start learning.</li><li>Notice the urge to switch.</li><li>Trigger the 5-second pause.</li><li>Breathe and reflect.</li><li>Choose consciously.</li></ol>
+    </div>
+  </div>
+  <div class="card demo" data-demo></div>
+</section>
+
+<!-- 3 SESSION -->
+<section class="view" id="session">
+  <div id="noSession" class="card empty">
+    <h3>No active session</h3><p>Start a session from the dashboard to try the 5-second pause.</p>
+    <button class="btn" data-view="dashboard">Go to Dashboard</button>
+  </div>
+  <div id="live" hidden>
+    <div class="focus card">
+      <p class="status" id="status">Focus session active</p>
+      <h2 id="sActivity"></h2>
+      <div class="time" id="time" role="timer">25:00</div>
+      <div class="bar" role="progressbar" aria-label="Session progress"><i id="prog"></i></div>
+      <button class="btn big" id="distract">I’m getting distracted</button>
+      <div class="row"><button class="btn ghost" id="pauseBtn">Pause Session</button><button class="btn ghost" id="endBtn">End Session</button></div>
+      <p class="toast" id="toast" role="status"></p>
+    </div>
+    <div class="card demo" data-demo></div>
+  </div>
+</section>
+
+<!-- 5 SUMMARY -->
+<section class="view" id="summary">
+  <h2>Session Complete</h2>
+  <div class="grid4" id="sumStats"></div>
+  <div class="card"><h3>What happened?</h3><p id="sumText"></p>
+    <p class="note">Based only on this prototype’s simulated interactions. Not a validated behavioural analysis.</p>
+    <div class="row"><button class="btn" data-view="dashboard">Start Another Session</button><button class="btn ghost" data-view="insights">View Insights</button></div></div>
+</section>
+
+<!-- 6 INSIGHTS -->
+<section class="view" id="insights">
+  <h2>Insights</h2>
+  <div class="grid4" id="inStats"></div>
+  <div class="card"><h3>Focused vs planned minutes</h3><div id="chart" class="chart"></div></div>
+  <div class="card"><h3>Your Focus Pattern</h3><ul id="patterns"></ul>
+    <p class="note">Prototype observations based on recorded demo sessions, not scientific conclusions. Keep experimenting with what works for you.</p></div>
+</section>
+
+<!-- 7 HOW -->
+<section class="view" id="how">
+  <h2>How It Works</h2>
+  <ol class="flowv">
+    <li><b>Start learning</b>Choose an activity and duration.</li>
+    <li><b>Distraction impulse</b>You feel the urge to switch away.</li>
+    <li class="hot"><b>5-second pause</b>Tap “I’m getting distracted” to open the pause.</li>
+    <li><b>Breathe &amp; reflect</b>Breathe in, hold, breathe out.</li>
+    <li><b>Choose</b>You decide what happens next.</li>
+    <li><b>Return or leave</b>Both options are always available.</li>
+    <li><b>Review session</b>See what you noticed.</li>
+  </ol>
+  <div class="card"><p>The idea was developed from the observation that the moment immediately before switching activities can be an opportunity for conscious decision-making. It is a prototype intervention to be tested, not a proven method.</p></div>
+</section>
+
+<!-- 8 HUMAN VS AI -->
+<section class="view" id="human">
+  <h2>Human vs AI</h2>
+  <div class="grid2">
+    <div class="card"><h3>Human Solution: 5-Second Focus Pause</h3><ul>
+      <li>Notifications interrupt attention.</li><li>Chats create immediate distraction.</li><li>Social media is easily accessible.</li><li>Online learning can become boring.</li><li>Students may automatically switch activities.</li></ul></div>
+    <div class="card"><h3>AI Solution</h3><p>Will be documented after the AI-assisted problem-solving stage.</p></div>
+  </div>
+  <div class="card scroll"><table><thead><tr><th>Category</th><th>Human</th><th>AI</th></tr></thead><tbody id="cmp"></tbody></table></div>
+</section>
+
+<!-- 9 ABOUT -->
+<section class="view" id="about">
+  <h2>About</h2>
+  <p class="sub">FocusPause is a student-developed problem-solving prototype.</p>
+  <div class="grid2">
+    <div class="card"><h3>Human contribution</h3><ul><li>Problem identification</li><li>Initial reasoning</li><li>5-second intervention concept</li><li>Solution selection</li></ul></div>
+    <div class="card"><h3>AI contribution</h3><ul><li>To be documented separately after AI-assisted analysis</li><li>Used for alternative ideas and refinement</li></ul></div>
+  </div>
+  <div class="card"><h3>Responsible AI principles</h3><ul><li>AI suggestions should be verified.</li><li>AI output should not be blindly accepted.</li><li>Personal or sensitive information should not be entered into AI tools.</li><li>Human judgement remains important.</li></ul></div>
+  <div class="card"><p><b>Prototype limitation:</b> This frontend demo does not monitor or block other apps/websites. Distraction events are simulated for demonstration and testing.</p></div>
+</section>
+</main>
+
+<!-- 4 FOCUS PAUSE OVERLAY -->
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="ovTitle" hidden>
+  <div class="modal">
+    <div id="stepPause">
+      <h2 id="ovTitle">Pause for a moment.</h2>
+      <p>Before you switch, give yourself 5 seconds.</p>
+      <div class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="54"/><circle id="arc" cx="60" cy="60" r="54"/></svg><span id="count" aria-live="off">5</span></div>
+      <p class="breath" id="breath" aria-live="polite">Breathe in</p>
+    </div>
+    <div id="stepChoice" hidden>
+      <h2>Your choice.</h2>
+      <p>You’ve created a small pause between the impulse and the action. What would you like to do?</p>
+      <div class="row c"><button class="btn" id="returnBtn">Return to Learning</button><button class="btn ghost" id="leaveBtn">Leave Session</button></div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
